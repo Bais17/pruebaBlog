@@ -4,7 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#080610">
-<title>Bais.dev | Software Engineer & Tech Blog</title>
+<meta name="description" content="Blog personal de Bais. Desarrollo de software, Java, Spring Boot, Cloud Computing y DevOps.">
+<title>Bais.dev | Software & Technology</title>
 
 <style>
 :root {
@@ -16,6 +17,7 @@
     --text: #f4efff;
     --muted: #a39ab4;
     --border: #2a203b;
+    --glow: #9333ea55;
 }
 
 * {
@@ -30,6 +32,10 @@ body {
     color: var(--text);
     font-family: Inter, "Segoe UI", Arial, sans-serif;
     line-height: 1.7;
+}
+
+body.modal-open {
+    overflow: hidden;
 }
 
 a {
@@ -51,7 +57,7 @@ button {
 }
 
 .gradient {
-    background: linear-gradient(100deg, #a855f7, #d8b4fe);
+    background: linear-gradient(100deg, #a855f7, #e9d5ff);
     -webkit-background-clip: text;
     color: transparent;
 }
@@ -62,7 +68,7 @@ header {
     position: sticky;
     top: 0;
     z-index: 100;
-    background: rgba(8,6,16,.9);
+    background: rgba(8,6,16,.92);
     backdrop-filter: blur(18px);
     border-bottom: 1px solid var(--border);
 }
@@ -75,7 +81,7 @@ header {
 }
 
 .logo {
-    font-size: 23px;
+    font-size: 24px;
     font-weight: 900;
     letter-spacing: -1px;
 }
@@ -108,7 +114,7 @@ header {
 
 .dropdown summary::after {
     content: "⌄";
-    margin-left: 6px;
+    margin-left: 7px;
     color: var(--purple);
 }
 
@@ -116,7 +122,7 @@ header {
     position: absolute;
     top: 32px;
     left: -15px;
-    min-width: 190px;
+    min-width: 195px;
     background: #171023;
     border: 1px solid var(--border);
     border-radius: 12px;
@@ -147,7 +153,7 @@ header {
 /* HERO */
 
 .hero {
-    min-height: 520px;
+    min-height: 550px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -158,13 +164,13 @@ header {
 .hero::before {
     content: "";
     position: absolute;
-    width: 420px;
-    height: 420px;
+    width: 450px;
+    height: 450px;
     right: -100px;
-    top: 40px;
+    top: 30px;
     background: #8528e8;
     filter: blur(170px);
-    opacity: .22;
+    opacity: .2;
     pointer-events: none;
 }
 
@@ -197,7 +203,7 @@ header {
 }
 
 .hero p {
-    max-width: 630px;
+    max-width: 640px;
     color: var(--muted);
     font-size: 17px;
 }
@@ -226,16 +232,16 @@ header {
 .primary:hover {
     background: #a855f7;
     transform: translateY(-3px);
-    box-shadow: 0 8px 30px #9333ea55;
+    box-shadow: 0 8px 30px var(--glow);
 }
 
 .secondary {
     border: 1px solid var(--border);
-    color: var(--text);
 }
 
 .secondary:hover {
     border-color: var(--purple);
+    color: var(--light);
 }
 
 /* SECTIONS */
@@ -292,7 +298,7 @@ section {
 
 .stat strong {
     display: block;
-    font-size: 21px;
+    font-size: 19px;
     color: var(--light);
 }
 
@@ -320,11 +326,11 @@ section {
     border-color: var(--purple);
     transform: translateY(-5px);
     background: #1b1129;
+    box-shadow: 0 10px 30px #9333ea18;
 }
 
-.tech .symbol {
-    font-size: 24px;
-    color: var(--light);
+.symbol {
+    font-size: 25px;
     margin-bottom: 10px;
 }
 
@@ -356,10 +362,11 @@ section {
 
 .project:hover {
     border-color: var(--purple);
+    transform: translateY(-3px);
 }
 
 .project-icon {
-    font-size: 27px;
+    font-size: 28px;
     margin-bottom: 12px;
 }
 
@@ -389,8 +396,8 @@ section {
 .blog-controls {
     display: flex;
     flex-wrap: wrap;
-    gap: 12px;
-    margin-bottom: 22px;
+    gap: 10px;
+    margin-bottom: 18px;
 }
 
 .search {
@@ -406,6 +413,7 @@ section {
 
 .search:focus {
     border-color: var(--purple);
+    box-shadow: 0 0 15px #9333ea22;
 }
 
 .filter {
@@ -415,12 +423,24 @@ section {
     border-radius: 8px;
     padding: 9px 13px;
     font-size: 12px;
+    transition: .2s;
 }
 
-.filter.active, .filter:hover {
+.filter.active,
+.filter:hover {
     color: white;
     background: #51217d;
     border-color: var(--purple);
+}
+
+.blog-info {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    color: var(--muted);
+    font-size: 12px;
+    margin-bottom: 20px;
 }
 
 .blog-grid {
@@ -433,13 +453,20 @@ section {
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 13px;
-    padding: 22px;
-    transition: .2s;
+    padding: 23px;
+    transition: .25s;
+    cursor: pointer;
 }
 
 .post:hover {
     border-color: var(--purple);
-    transform: translateY(-3px);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px #9333ea15;
+}
+
+.post:focus-visible {
+    outline: 2px solid var(--light);
+    outline-offset: 3px;
 }
 
 .post .category {
@@ -459,29 +486,216 @@ section {
     font-size: 13px;
 }
 
-.post details {
-    margin-top: 17px;
+.post-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    margin-top: 20px;
+    padding-top: 14px;
     border-top: 1px solid var(--border);
-    padding-top: 13px;
+    font-size: 12px;
+    color: var(--muted);
 }
 
-.post summary {
-    color: #c084fc;
-    font-size: 13px;
-    cursor: pointer;
-}
-
-.post details p {
-    padding-top: 13px;
-    line-height: 1.8;
+.read-hint {
+    color: var(--light);
 }
 
 .empty {
     display: none;
     color: var(--muted);
-    padding: 25px;
+    padding: 35px;
     text-align: center;
     grid-column: 1/-1;
+    background: var(--surface);
+    border-radius: 12px;
+}
+
+/* MODAL */
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 500;
+    background: rgba(0,0,0,.8);
+    backdrop-filter: blur(12px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 18px;
+}
+
+.modal-overlay.show {
+    display: flex;
+    animation: fadeIn .2s ease;
+}
+
+.modal-window {
+    width: min(780px,100%);
+    max-height: 90vh;
+    overflow-y: auto;
+    background: #100b1a;
+    border: 1px solid #58327c;
+    border-radius: 18px;
+    box-shadow: 0 0 70px #9333ea35;
+    position: relative;
+    animation: modalIn .25s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes modalIn {
+    from { opacity: 0; transform: translateY(25px) scale(.97); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.modal-top {
+    position: sticky;
+    top: 0;
+    background: rgba(16,11,26,.95);
+    backdrop-filter: blur(12px);
+    padding: 15px 22px;
+    border-bottom: 1px solid #30213f;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 3;
+}
+
+.modal-label {
+    color: var(--light);
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.modal-close {
+    background: #261936;
+    border: 1px solid #54346e;
+    color: white;
+    width: 36px;
+    height: 36px;
+    border-radius: 9px;
+    font-size: 21px;
+}
+
+.modal-close:hover {
+    background: #51217d;
+}
+
+.read-progress {
+    height: 3px;
+    background: #281638;
+    position: sticky;
+    top: 67px;
+    z-index: 2;
+}
+
+.read-progress span {
+    display: block;
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg,#9333ea,#e9d5ff);
+}
+
+.modal-content {
+    padding: 30px;
+}
+
+.modal-content h2 {
+    font-size: clamp(26px,5vw,38px);
+    line-height: 1.2;
+    margin: 13px 0;
+}
+
+.modal-meta {
+    color: var(--muted);
+    font-size: 12px;
+    margin-bottom: 28px;
+}
+
+.modal-body {
+    color: #c7bfd2;
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+.modal-body h3 {
+    color: #e9d5ff;
+    margin: 25px 0 10px;
+    font-size: 19px;
+}
+
+.modal-body p {
+    margin-bottom: 15px;
+}
+
+.modal-body ul {
+    padding-left: 23px;
+    margin: 12px 0;
+}
+
+.modal-body li {
+    margin-bottom: 8px;
+}
+
+.modal-body code {
+    color: #d8b4fe;
+    background: #261936;
+    padding: 3px 6px;
+    border-radius: 5px;
+}
+
+.modal-body pre {
+    background: #080610;
+    border: 1px solid #342443;
+    border-radius: 10px;
+    padding: 18px;
+    overflow-x: auto;
+    margin: 18px 0;
+}
+
+.modal-body pre code {
+    background: transparent;
+    padding: 0;
+}
+
+.modal-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 20px 30px;
+    border-top: 1px solid #30213f;
+    position: sticky;
+    bottom: 0;
+    background: #100b1a;
+}
+
+.modal-actions button {
+    background: #20142f;
+    color: #d8b4fe;
+    border: 1px solid #54346e;
+    padding: 9px 13px;
+    border-radius: 8px;
+    font-size: 12px;
+}
+
+.modal-actions button:hover {
+    background: #51217d;
+    color: white;
+}
+
+.modal-actions button:disabled {
+    opacity: .35;
+    cursor: not-allowed;
+}
+
+.favorite {
+    color: #f0abfc !important;
+    border-color: #a855f7 !important;
 }
 
 /* CONTACT */
@@ -491,7 +705,7 @@ section {
     background: linear-gradient(120deg,#1b102a,#100b1a);
     border: 1px solid var(--border);
     border-radius: 18px;
-    padding: 45px 20px;
+    padding: 48px 20px;
 }
 
 .contact p {
@@ -500,12 +714,53 @@ section {
     max-width: 550px;
 }
 
+.social-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.social-links a {
+    color: var(--light);
+    font-size: 13px;
+}
+
+.social-links a:hover {
+    color: white;
+}
+
 footer {
     border-top: 1px solid var(--border);
     padding: 25px 0;
     color: var(--muted);
     font-size: 12px;
     text-align: center;
+}
+
+/* TOAST */
+
+.toast {
+    position: fixed;
+    bottom: 25px;
+    left: 50%;
+    transform: translate(-50%,20px);
+    background: #51217d;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 10px;
+    z-index: 1000;
+    box-shadow: 0 5px 30px #0008;
+    font-size: 13px;
+    opacity: 0;
+    pointer-events: none;
+    transition: .25s;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translate(-50%,0);
 }
 
 /* ANIMATIONS */
@@ -519,8 +774,13 @@ footer {
     to { opacity: 1; transform: translateY(0); }
 }
 
+/* RESPONSIVE */
+
 @media(max-width:750px) {
-    .menu-btn { display: block; }
+
+    .menu-btn {
+        display: block;
+    }
 
     .nav-links {
         display: none;
@@ -536,7 +796,9 @@ footer {
         gap: 15px;
     }
 
-    .nav-links.open { display: flex; }
+    .nav-links.open {
+        display: flex;
+    }
 
     .dropdown-menu {
         position: static;
@@ -553,23 +815,55 @@ footer {
         grid-template-columns: repeat(2,1fr);
     }
 
-    .hero { min-height: 470px; }
+    .hero {
+        min-height: 470px;
+    }
 
-    .hero h1 { letter-spacing: -2px; }
+    .hero h1 {
+        letter-spacing: -2px;
+    }
+
+    .modal-overlay {
+        padding: 8px;
+    }
+
+    .modal-window {
+        max-height: 95vh;
+    }
+
+    .modal-content {
+        padding: 22px;
+    }
+
+    .modal-actions {
+        padding: 15px 20px;
+    }
 }
 
+@media(prefers-reduced-motion:reduce) {
+    *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+    }
+}
 </style>
 </head>
 
 <body>
 
+<!-- HEADER -->
+
 <header>
 <div class="container navbar">
+
     <a href="#inicio" class="logo">bais<span>.dev</span></a>
 
-    <button class="menu-btn" id="menuBtn">☰</button>
+    <button class="menu-btn" id="menuBtn"
+        aria-label="Abrir menú" aria-expanded="false">☰</button>
 
     <nav class="nav-links" id="navLinks">
+
         <a href="#inicio">Inicio</a>
         <a href="#sobre-mi">Sobre mí</a>
 
@@ -585,13 +879,15 @@ footer {
         <details class="dropdown">
             <summary>Recursos</summary>
             <div class="dropdown-menu">
-                <a href="#blog">Tutoriales</a>
-                <a href="#blog">Cloud Computing</a>
                 <a href="#blog">Backend</a>
+                <a href="#blog">Cloud Computing</a>
+                <a href="#blog">DevOps</a>
+                <a href="#blog">Bases de datos</a>
             </div>
         </details>
 
         <a href="#contacto">Contacto</a>
+
     </nav>
 </div>
 </header>
@@ -607,12 +903,12 @@ footer {
     </span>
 
     <h1>
-        Building ideas.<br>
-        <span class="gradient">Creating solutions.</span>
+        Ingeniero de Software<br>
+        <span class="gradient">e Informatica.</span>
     </h1>
 
     <p>
-        Hola, soy Bais. Estudiante de Ingeniería de Sistemas e
+        Hola, soy Luis Espinoza. Estudiante de Ingeniería de Sistemas e
         Informática, apasionado por el desarrollo de software,
         backend, arquitectura de aplicaciones y computación en la nube.
         Este es mi espacio para compartir proyectos, conocimientos
@@ -626,16 +922,22 @@ footer {
 
 </section>
 
-<!-- ABOUT -->
+<!-- SOBRE MI -->
 
 <section id="sobre-mi">
 
-    <h2 class="section-title">Sobre mí<span class="gradient">.</span></h2>
-    <p class="section-subtitle">Un poco de mi perfil profesional.</p>
+    <h2 class="section-title">
+        Sobre mí<span class="gradient">.</span>
+    </h2>
+
+    <p class="section-subtitle">
+        Un poco de mi perfil profesional.
+    </p>
 
     <div class="about-grid">
 
         <div class="panel">
+
             <h3>Desarrollador en constante aprendizaje</h3>
 
             <p>
@@ -644,20 +946,27 @@ footer {
                 Trabajo con Java y Spring Boot para desarrollar
                 servicios y APIs REST, y exploro Angular para
                 construir interfaces web.
+
                 <br><br>
+
                 También estoy profundizando en Docker, Linux,
                 bases de datos, infraestructura cloud, monitoreo
                 y despliegue de aplicaciones.
+
                 <br><br>
+
                 Me interesa entender cómo funciona una aplicación
                 desde el código hasta su ejecución en la nube.
             </p>
+
         </div>
 
         <div class="panel">
+
             <h3>Mi enfoque</h3>
 
             <div class="stats">
+
                 <div class="stat">
                     <strong>Backend</strong>
                     <small>Desarrollo de APIs</small>
@@ -677,18 +986,24 @@ footer {
                     <strong>Data</strong>
                     <small>Bases de datos</small>
                 </div>
+
             </div>
         </div>
 
     </div>
 </section>
 
-<!-- TECHNOLOGIES -->
+<!-- TECNOLOGIAS -->
 
 <section id="tecnologias">
 
-    <h2 class="section-title">Stack tecnológico<span class="gradient">.</span></h2>
-    <p class="section-subtitle">Herramientas y tecnologías con las que trabajo y aprendo.</p>
+    <h2 class="section-title">
+        Stack tecnológico<span class="gradient">.</span>
+    </h2>
+
+    <p class="section-subtitle">
+        Herramientas y tecnologías con las que trabajo y aprendo.
+    </p>
 
     <div class="tech-grid">
 
@@ -743,23 +1058,30 @@ footer {
     </div>
 </section>
 
-<!-- PROJECTS -->
+<!-- PROYECTOS -->
 
 <section id="proyectos">
 
-    <h2 class="section-title">Proyectos<span class="gradient">.</span></h2>
-    <p class="section-subtitle">Algunos proyectos y experiencias de desarrollo.</p>
+    <h2 class="section-title">
+        Proyectos<span class="gradient">.</span>
+    </h2>
+
+    <p class="section-subtitle">
+        Algunos proyectos y experiencias de desarrollo.
+    </p>
 
     <div class="project-grid">
 
         <article class="project">
             <div class="project-icon">🚍</div>
             <h3>TransitIA</h3>
+
             <p>
-                Proyecto de aplicación móvil desarrollado con Android Studio.
-                Incluye módulos de autenticación, registro, verificación,
-                reportes y visualización de resultados.
+                Proyecto de aplicación móvil desarrollado con
+                Android Studio. Incluye módulos de autenticación,
+                registro, verificación, reportes y resultados.
             </p>
+
             <div class="tags">
                 <span class="tag">Android</span>
                 <span class="tag">Kotlin</span>
@@ -770,11 +1092,13 @@ footer {
         <article class="project">
             <div class="project-icon">☁️</div>
             <h3>ServiceCloudAI</h3>
+
             <p>
                 Proyecto web trabajado con Laravel y PostgreSQL,
                 utilizando Docker Compose para gestionar los
                 servicios de la aplicación y la base de datos.
             </p>
+
             <div class="tags">
                 <span class="tag">Laravel</span>
                 <span class="tag">PostgreSQL</span>
@@ -785,11 +1109,13 @@ footer {
         <article class="project">
             <div class="project-icon">📡</div>
             <h3>Infraestructura y monitoreo</h3>
+
             <p>
                 Laboratorio de monitoreo con Zabbix sobre Ubuntu.
                 Configuración de agentes, supervisión de recursos
                 y notificaciones mediante correo electrónico.
             </p>
+
             <div class="tags">
                 <span class="tag">Zabbix</span>
                 <span class="tag">Ubuntu</span>
@@ -800,11 +1126,13 @@ footer {
         <article class="project">
             <div class="project-icon">⛽</div>
             <h3>Sistema de gestión de grifo</h3>
+
             <p>
                 Proyecto académico orientado al registro de ventas,
                 liquidación de turnos, control de efectivo,
                 depósitos, gastos y pagos electrónicos.
             </p>
+
             <div class="tags">
                 <span class="tag">Java</span>
                 <span class="tag">SQL</span>
@@ -819,7 +1147,10 @@ footer {
 
 <section id="blog">
 
-    <h2 class="section-title">Blog & conocimientos<span class="gradient">.</span></h2>
+    <h2 class="section-title">
+        Blog & conocimientos<span class="gradient">.</span>
+    </h2>
+
     <p class="section-subtitle">
         Notas, experiencias y aprendizajes sobre desarrollo de software.
     </p>
@@ -831,6 +1162,7 @@ footer {
             type="search"
             id="search"
             placeholder="⌕ Buscar artículos..."
+            aria-label="Buscar artículos"
         >
 
         <button class="filter active" data-category="all">Todos</button>
@@ -838,193 +1170,51 @@ footer {
         <button class="filter" data-category="cloud">Cloud</button>
         <button class="filter" data-category="devops">DevOps</button>
         <button class="filter" data-category="database">Database</button>
+    </div>
 
+    <div class="blog-info">
+        <span id="articleCount">6 artículos</span>
+        <span>Selecciona un artículo para leerlo ↗</span>
     </div>
 
     <div class="blog-grid" id="blogGrid">
 
-        <article class="post" data-category="backend">
-            <span class="category">Backend · Java</span>
-            <h3>¿Qué es Spring Boot y por qué utilizarlo?</h3>
-            <p>
-                Una introducción al desarrollo de aplicaciones
-                backend utilizando el ecosistema Spring.
-            </p>
-
-            <details>
-                <summary>Leer artículo completo ↓</summary>
-                <p>
-                    Spring Boot es un framework basado en Spring
-                    que simplifica la creación de aplicaciones Java.
-                    Permite configurar proyectos con menos código
-                    y proporciona herramientas para crear APIs REST.
-                    <br><br>
-                    Entre sus componentes más utilizados están:
-                    Spring Web, Spring Data JPA, Spring Security
-                    y Spring Boot Actuator.
-                    <br><br>
-                    Una arquitectura común separa la aplicación
-                    en Controller, Service y Repository.
-                    Esta organización facilita el mantenimiento
-                    y la separación de responsabilidades.
-                </p>
-            </details>
-        </article>
-
-        <article class="post" data-category="cloud">
-            <span class="category">Cloud Computing</span>
-            <h3>¿Qué es la computación en la nube?</h3>
-            <p>
-                Comprendiendo cómo ejecutar aplicaciones
-                utilizando infraestructura cloud.
-            </p>
-
-            <details>
-                <summary>Leer artículo completo ↓</summary>
-                <p>
-                    La computación en la nube permite utilizar
-                    recursos informáticos a través de Internet,
-                    como servidores, almacenamiento, redes y bases
-                    de datos.
-                    <br><br>
-                    Existen tres modelos principales:
-                    IaaS, PaaS y SaaS.
-                    <br><br>
-                    Por ejemplo, Compute Engine permite utilizar
-                    máquinas virtuales, mientras que Cloud Run
-                    permite desplegar aplicaciones en contenedores
-                    sin administrar directamente los servidores.
-                </p>
-            </details>
-        </article>
-
-        <article class="post" data-category="devops">
-            <span class="category">DevOps · Docker</span>
-            <h3>Docker y los contenedores</h3>
-            <p>
-                Cómo empaquetar aplicaciones y sus dependencias
-                en entornos reproducibles.
-            </p>
-
-            <details>
-                <summary>Leer artículo completo ↓</summary>
-                <p>
-                    Docker permite empaquetar una aplicación
-                    junto con sus dependencias dentro de una imagen.
-                    <br><br>
-                    Un contenedor es una instancia ejecutable
-                    de esa imagen.
-                    <br><br>
-                    Docker Compose permite definir y administrar
-                    múltiples servicios mediante un archivo
-                    compose.yaml.
-                    Es especialmente útil cuando una aplicación
-                    necesita backend, base de datos y otros servicios.
-                </p>
-            </details>
-        </article>
-
-        <article class="post" data-category="database">
-            <span class="category">Database · SQL</span>
-            <h3>PostgreSQL frente a MySQL</h3>
-            <p>
-                Diferencias entre dos sistemas gestores
-                de bases de datos relacionales.
-            </p>
-
-            <details>
-                <summary>Leer artículo completo ↓</summary>
-                <p>
-                    PostgreSQL y MySQL son gestores de bases
-                    de datos relacionales muy utilizados.
-                    <br><br>
-                    PostgreSQL destaca por su extensibilidad,
-                    cumplimiento de estándares SQL y soporte
-                    para tipos de datos avanzados.
-                    <br><br>
-                    MySQL es ampliamente utilizado en aplicaciones
-                    web y cuenta con un ecosistema muy extendido.
-                    <br><br>
-                    La elección depende de los requisitos,
-                    consultas, modelo de datos y necesidades
-                    de la aplicación.
-                </p>
-            </details>
-        </article>
-
-        <article class="post" data-category="cloud">
-            <span class="category">Cloud · Infrastructure</span>
-            <h3>¿Qué es una máquina virtual?</h3>
-            <p>
-                Entendiendo la virtualización y su aplicación
-                en plataformas cloud.
-            </p>
-
-            <details>
-                <summary>Leer artículo completo ↓</summary>
-                <p>
-                    Una máquina virtual es un entorno informático
-                    que emula un equipo físico y dispone de
-                    recursos virtualizados como CPU, RAM y disco.
-                    <br><br>
-                    En Google Cloud, Compute Engine permite
-                    crear máquinas virtuales con diferentes
-                    configuraciones de hardware y sistemas operativos.
-                    <br><br>
-                    Son útiles para alojar servicios, administrar
-                    servidores y ejecutar aplicaciones.
-                </p>
-            </details>
-        </article>
-
-        <article class="post" data-category="devops">
-            <span class="category">DevOps · Monitoring</span>
-            <h3>Monitoreo de servidores con Zabbix</h3>
-            <p>
-                Supervisión de recursos, disponibilidad
-                y generación de alertas.
-            </p>
-
-            <details>
-                <summary>Leer artículo completo ↓</summary>
-                <p>
-                    Zabbix es una plataforma de monitoreo
-                    que permite supervisar servidores,
-                    redes y servicios.
-                    <br><br>
-                    Mediante agentes se pueden recopilar métricas
-                    de CPU, memoria, disco y disponibilidad.
-                    <br><br>
-                    Los triggers permiten definir condiciones
-                    para detectar problemas y generar alertas.
-                    Por ejemplo, advertir cuando el uso de CPU
-                    supera un umbral determinado.
-                </p>
-            </details>
-        </article>
+        <div class="empty" id="empty">
+            No se encontraron artículos con esa búsqueda.
+        </div>
 
     </div>
 
-    <p class="empty" id="empty">
-        No se encontraron artículos con esa búsqueda.
-    </p>
-
 </section>
 
-<!-- CONTACT -->
+<!-- CONTACTO -->
 
 <section id="contacto">
 
     <div class="contact">
-        <h2>Construyamos algo interesante<span class="gradient">.</span></h2>
+
+        <h2>
+            Construyamos algo interesante<span class="gradient">.</span>
+        </h2>
 
         <p>
-            Este espacio reúne mis proyectos, experimentos y
-            aprendizajes. Siempre hay algo nuevo por explorar
-            en el mundo del desarrollo de software.
+            Este espacio reúne mis proyectos, experimentos y aprendizajes.
+            Siempre hay algo nuevo por explorar en el mundo del desarrollo
+            de software.
         </p>
 
         <a href="#inicio" class="btn primary">Volver al inicio ↑</a>
+
+        <div class="social-links">
+            <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
+                GitHub ↗
+            </a>
+
+            <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer">
+                LinkedIn ↗
+            </a>
+        </div>
+
     </div>
 
 </section>
@@ -1039,81 +1229,922 @@ footer {
     </div>
 </footer>
 
+<!-- MODAL DE ARTICULOS -->
+
+<div class="modal-overlay" id="articleModal">
+
+    <div class="modal-window" id="modalWindow"
+         role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+
+        <div class="modal-top">
+
+            <span class="modal-label">BAIS.DEV / ARTICLE</span>
+
+            <button class="modal-close" id="closeModal"
+                aria-label="Cerrar artículo">×</button>
+
+        </div>
+
+        <div class="read-progress">
+            <span id="readProgress"></span>
+        </div>
+
+        <div class="modal-content">
+
+            <span class="category" id="modalCategory"></span>
+
+            <h2 id="modalTitle"></h2>
+
+            <div class="modal-meta" id="modalMeta"></div>
+
+            <div class="modal-body" id="modalBody"></div>
+
+        </div>
+
+        <div class="modal-actions">
+
+            <button id="previousArticle">← Anterior</button>
+
+            <button id="nextArticle">Siguiente →</button>
+
+            <button id="favoriteArticle">♡ Favorito</button>
+
+            <button id="copyArticle">Copiar enlace</button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
 <script>
 
-// MENÚ MÓVIL
+// ======================================
+// DATOS DE LOS ARTICULOS
+// ======================================
+
+const articles = [
+
+{
+    id: "spring-boot",
+    category: "backend",
+    label: "Backend · Java",
+    title: "¿Qué es Spring Boot y por qué utilizarlo?",
+    description: "Introducción al desarrollo de aplicaciones backend con Java y Spring.",
+    date: "17 noviembre 2026",
+    time: "5 min",
+    content: `
+        <p>
+            <strong>Spring Boot</strong> es un framework basado en Spring
+            que simplifica la creación de aplicaciones Java.
+            Permite construir servicios web y APIs REST con una configuración
+            inicial mucho más sencilla.
+        </p>
+
+        <h3>¿Por qué utilizar Spring Boot?</h3>
+
+        <p>
+            En aplicaciones empresariales es importante mantener una
+            arquitectura organizada, separar responsabilidades y facilitar
+            el mantenimiento del código.
+        </p>
+
+        <p>Spring Boot proporciona herramientas para:</p>
+
+        <ul>
+            <li>Crear APIs REST.</li>
+            <li>Conectar aplicaciones con bases de datos.</li>
+            <li>Implementar autenticación y autorización.</li>
+            <li>Gestionar dependencias mediante starters.</li>
+            <li>Monitorear aplicaciones con Actuator.</li>
+        </ul>
+
+        <h3>Arquitectura por capas</h3>
+
+        <p>Una estructura común de un backend es:</p>
+
+        <pre><code>Controller
+    |
+    v
+Service
+    |
+    v
+Repository
+    |
+    v
+Database</code></pre>
+
+        <p>
+            El Controller recibe las solicitudes HTTP, el Service
+            contiene la lógica de negocio y el Repository gestiona
+            el acceso a los datos.
+        </p>
+
+        <h3>Dependencias importantes</h3>
+
+        <ul>
+            <li><code>Spring Web</code>: creación de APIs REST.</li>
+            <li><code>Spring Data JPA</code>: persistencia de datos.</li>
+            <li><code>Spring Security</code>: seguridad y autenticación.</li>
+            <li><code>Spring Boot Actuator</code>: monitoreo.</li>
+        </ul>
+
+        <h3>Conclusión</h3>
+
+        <p>
+            Spring Boot es una excelente opción para desarrollar
+            servicios backend con Java, especialmente cuando se busca
+            construir aplicaciones mantenibles y escalables.
+        </p>
+    `
+},
+
+{
+    id: "cloud",
+    category: "cloud",
+    label: "Cloud Computing",
+    title: "¿Qué es la computación en la nube?",
+    description: "Comprendiendo cómo ejecutar aplicaciones utilizando infraestructura cloud.",
+    date: "17 noviembre 2026",
+    time: "6 min",
+    content: `
+        <p>
+            La computación en la nube permite utilizar recursos
+            informáticos a través de Internet sin tener que adquirir
+            y administrar toda la infraestructura física.
+        </p>
+
+        <h3>Modelos de servicio</h3>
+
+        <ul>
+            <li><strong>IaaS:</strong> infraestructura como servicio.</li>
+            <li><strong>PaaS:</strong> plataforma como servicio.</li>
+            <li><strong>SaaS:</strong> software como servicio.</li>
+        </ul>
+
+        <h3>Ejemplo con Google Cloud</h3>
+
+        <p>
+            Google Cloud ofrece diferentes servicios para desplegar
+            aplicaciones.
+        </p>
+
+        <ul>
+            <li><strong>Compute Engine:</strong> máquinas virtuales.</li>
+            <li><strong>Cloud Run:</strong> ejecución de contenedores.</li>
+            <li><strong>Cloud SQL:</strong> bases de datos administradas.</li>
+            <li><strong>Cloud Storage:</strong> almacenamiento de objetos.</li>
+            <li><strong>Cloud Load Balancing:</strong> distribución de tráfico.</li>
+        </ul>
+
+        <h3>¿Cómo funciona una aplicación en la nube?</h3>
+
+        <pre><code>Usuario
+   |
+   v
+Internet
+   |
+   v
+Load Balancer
+   |
+   v
+Aplicación
+   |
+   v
+Base de datos</code></pre>
+
+        <h3>Ventajas</h3>
+
+        <ul>
+            <li>Escalabilidad de recursos.</li>
+            <li>Disponibilidad de servicios.</li>
+            <li>Pago según consumo o recursos contratados.</li>
+            <li>Despliegue en diferentes regiones.</li>
+        </ul>
+
+        <h3>Conclusión</h3>
+
+        <p>
+            Aprender cloud computing significa entender cómo
+            desplegar, conectar, proteger y monitorear aplicaciones
+            fuera del entorno local.
+        </p>
+    `
+},
+
+{
+    id: "docker",
+    category: "devops",
+    label: "DevOps · Docker",
+    title: "Docker y los contenedores",
+    description: "Cómo empaquetar aplicaciones y sus dependencias en entornos reproducibles.",
+    date: "17 noviembre 2026",
+    time: "5 min",
+    content: `
+        <p>
+            Docker es una plataforma que permite crear, ejecutar
+            y administrar contenedores.
+        </p>
+
+        <h3>¿Qué es un contenedor?</h3>
+
+        <p>
+            Un contenedor es una instancia ejecutable de una imagen.
+            Incluye la aplicación y sus dependencias, pero comparte
+            el kernel del sistema operativo anfitrión.
+        </p>
+
+        <h3>Conceptos principales</h3>
+
+        <ul>
+            <li><strong>Image:</strong> plantilla para crear contenedores.</li>
+            <li><strong>Container:</strong> instancia en ejecución.</li>
+            <li><strong>Dockerfile:</strong> instrucciones para construir una imagen.</li>
+            <li><strong>Docker Compose:</strong> definición de servicios relacionados.</li>
+            <li><strong>Volume:</strong> persistencia de datos.</li>
+        </ul>
+
+        <h3>Comandos básicos</h3>
+
+        <pre><code>docker --version
+
+docker images
+
+docker ps
+
+docker build -t mi-app .
+
+docker run -d -p 8080:8080 mi-app</code></pre>
+
+        <h3>Docker Compose</h3>
+
+        <p>
+            Cuando una aplicación necesita varios servicios,
+            por ejemplo un backend y PostgreSQL, Docker Compose
+            permite administrarlos mediante un único archivo.
+        </p>
+
+        <pre><code>services:
+  app:
+    build: .
+    ports:
+      - "8080:8080"
+
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: mi_base</code></pre>
+
+        <h3>Conclusión</h3>
+
+        <p>
+            Docker facilita la portabilidad de aplicaciones
+            y permite reproducir entornos de desarrollo,
+            pruebas y producción.
+        </p>
+    `
+},
+
+{
+    id: "postgresql",
+    category: "database",
+    label: "Database · SQL",
+    title: "PostgreSQL frente a MySQL",
+    description: "Diferencias entre dos sistemas gestores de bases de datos relacionales.",
+    date: "17 noviembre 2026",
+    time: "5 min",
+    content: `
+        <p>
+            PostgreSQL y MySQL son sistemas gestores de bases
+            de datos relacionales ampliamente utilizados en
+            aplicaciones web y empresariales.
+        </p>
+
+        <h3>PostgreSQL</h3>
+
+        <p>
+            Es conocido por su extensibilidad, soporte para
+            tipos de datos avanzados y capacidades de consulta.
+            También permite trabajar con JSONB, índices
+            especializados y funciones complejas.
+        </p>
+
+        <h3>MySQL</h3>
+
+        <p>
+            Es un sistema de gestión de bases de datos muy
+            extendido, utilizado en numerosos sitios web
+            y aplicaciones empresariales.
+        </p>
+
+        <h3>Comparación</h3>
+
+        <ul>
+            <li>Ambos soportan SQL.</li>
+            <li>Ambos implementan transacciones ACID mediante sus motores apropiados.</li>
+            <li>PostgreSQL ofrece una amplia extensibilidad.</li>
+            <li>MySQL cuenta con un ecosistema muy extendido.</li>
+        </ul>
+
+        <h3>Consulta SQL de ejemplo</h3>
+
+        <pre><code>SELECT
+    nombre,
+    correo
+FROM usuarios
+WHERE activo = TRUE
+ORDER BY nombre;</code></pre>
+
+        <h3>¿Cuál elegir?</h3>
+
+        <p>
+            La decisión depende de los requisitos de la aplicación,
+            el modelo de datos, las consultas, el equipo de desarrollo
+            y la infraestructura disponible.
+        </p>
+    `
+},
+
+{
+    id: "virtual-machines",
+    category: "cloud",
+    label: "Cloud · Infrastructure",
+    title: "¿Qué es una máquina virtual?",
+    description: "Entendiendo la virtualización y su aplicación en plataformas cloud.",
+    date: "17 noviembre 2026",
+    time: "4 min",
+    content: `
+        <p>
+            Una máquina virtual es un entorno informático que
+            emula un equipo físico y dispone de recursos virtualizados
+            como CPU, memoria RAM, disco y red.
+        </p>
+
+        <h3>¿Cómo funciona?</h3>
+
+        <p>
+            Un hipervisor permite ejecutar varias máquinas virtuales
+            sobre un mismo servidor físico, aislando sus sistemas
+            operativos y recursos.
+        </p>
+
+        <h3>Máquinas virtuales en Google Cloud</h3>
+
+        <p>
+            Compute Engine permite crear máquinas virtuales
+            seleccionando configuraciones de CPU, memoria,
+            almacenamiento y sistema operativo.
+        </p>
+
+        <h3>Ejemplos de uso</h3>
+
+        <ul>
+            <li>Ejecutar servidores web.</li>
+            <li>Alojar aplicaciones backend.</li>
+            <li>Administrar bases de datos.</li>
+            <li>Implementar laboratorios de pruebas.</li>
+            <li>Configurar servicios de monitoreo.</li>
+        </ul>
+
+        <h3>Elementos que debes conocer</h3>
+
+        <ul>
+            <li>CPU y memoria.</li>
+            <li>Discos persistentes.</li>
+            <li>Redes y subredes.</li>
+            <li>Firewall y reglas de acceso.</li>
+            <li>Direcciones IP.</li>
+        </ul>
+
+        <h3>Conclusión</h3>
+
+        <p>
+            Comprender las máquinas virtuales es fundamental
+            para aprender infraestructura cloud y administración
+            de servidores.
+        </p>
+    `
+},
+
+{
+    id: "zabbix",
+    category: "devops",
+    label: "DevOps · Monitoring",
+    title: "Monitoreo de servidores con Zabbix",
+    description: "Supervisión de recursos, disponibilidad y generación de alertas.",
+    date: "17 noviembre 2026",
+    time: "5 min",
+    content: `
+        <p>
+            Zabbix es una plataforma de monitoreo que permite
+            supervisar servidores, redes, servicios y aplicaciones.
+        </p>
+
+        <h3>¿Qué podemos monitorear?</h3>
+
+        <ul>
+            <li>Uso del procesador.</li>
+            <li>Memoria RAM disponible.</li>
+            <li>Espacio de almacenamiento.</li>
+            <li>Disponibilidad de servidores.</li>
+            <li>Servicios de red.</li>
+        </ul>
+
+        <h3>Componentes principales</h3>
+
+        <ul>
+            <li><strong>Zabbix Server:</strong> procesa los datos y eventos.</li>
+            <li><strong>Zabbix Agent:</strong> recopila métricas del equipo.</li>
+            <li><strong>Frontend:</strong> interfaz web de administración.</li>
+            <li><strong>Database:</strong> almacena configuraciones e históricos.</li>
+        </ul>
+
+        <h3>Triggers y alertas</h3>
+
+        <p>
+            Los triggers permiten definir condiciones para detectar
+            problemas. Por ejemplo, podemos generar una alerta
+            cuando el uso de CPU supera el 90%.
+        </p>
+
+        <h3>¿Por qué es importante?</h3>
+
+        <p>
+            El monitoreo ayuda a detectar problemas antes de que
+            afecten gravemente la disponibilidad de una aplicación.
+        </p>
+
+        <p>
+            También permite analizar tendencias y tomar decisiones
+            sobre capacidad e infraestructura.
+        </p>
+    `
+}
+
+];
+
+// ======================================
+// REFERENCIAS DEL DOM
+// ======================================
+
+const modal = document.getElementById("articleModal");
+const modalWindow = document.getElementById("modalWindow");
+const modalTitle = document.getElementById("modalTitle");
+const modalCategory = document.getElementById("modalCategory");
+const modalBody = document.getElementById("modalBody");
+const modalMeta = document.getElementById("modalMeta");
+const progress = document.getElementById("readProgress");
+
+const blogGrid = document.getElementById("blogGrid");
+const search = document.getElementById("search");
+const empty = document.getElementById("empty");
+const articleCount = document.getElementById("articleCount");
 
 const menuBtn = document.getElementById("menuBtn");
 const navLinks = document.getElementById("navLinks");
 
-menuBtn.addEventListener("click", () => {
-    navLinks.classList.toggle("open");
-    menuBtn.textContent =
-        navLinks.classList.contains("open") ? "✕" : "☰";
-});
+let currentArticle = 0;
+let currentVisibleArticles = articles.map((_, index) => index);
 
-// CERRAR MENÚ AL NAVEGAR
+let favorites = new Set();
 
-document.querySelectorAll(".nav-links a").forEach(link => {
-    link.addEventListener("click", () => {
-        navLinks.classList.remove("open");
-        menuBtn.textContent = "☰";
-    });
-});
+try {
+    const saved = JSON.parse(
+        localStorage.getItem("baisFavorites") || "[]"
+    );
 
-// BUSCADOR Y FILTROS
-
-const search = document.getElementById("search");
-const posts = document.querySelectorAll(".post");
-const filters = document.querySelectorAll(".filter");
-const empty = document.getElementById("empty");
-
-let currentCategory = "all";
-
-function filterPosts() {
-    const query = search.value.toLowerCase();
-    let visible = 0;
-
-    posts.forEach(post => {
-        const matchesCategory =
-            currentCategory === "all" ||
-            post.dataset.category === currentCategory;
-
-        const matchesSearch =
-            post.innerText.toLowerCase().includes(query);
-
-        const show = matchesCategory && matchesSearch;
-
-        post.style.display = show ? "block" : "none";
-
-        if (show) visible++;
-    });
-
-    empty.style.display = visible ? "none" : "block";
+    if (Array.isArray(saved)) {
+        favorites = new Set(
+            saved.filter(id => typeof id === "string")
+        );
+    }
+} catch {
+    favorites = new Set();
 }
 
-search.addEventListener("input", filterPosts);
+// ======================================
+// GENERAR TARJETAS DEL BLOG
+// ======================================
 
-filters.forEach(button => {
+function renderArticles() {
+
+    const query = search.value.toLowerCase().trim();
+
+    const category =
+        document.querySelector(".filter.active").dataset.category;
+
+    const filtered = articles
+        .map((article, index) => ({ article, index }))
+        .filter(({ article }) => {
+
+            const matchesCategory =
+                category === "all" ||
+                article.category === category;
+
+            const searchable =
+                article.title + " " +
+                article.description + " " +
+                article.label + " " +
+                article.content;
+
+            const matchesSearch =
+                searchable.toLowerCase().includes(query);
+
+            return matchesCategory && matchesSearch;
+        });
+
+    currentVisibleArticles = filtered.map(item => item.index);
+
+    blogGrid.innerHTML = "";
+
+    filtered.forEach(({ article, index }) => {
+
+        const card = document.createElement("article");
+
+        card.className = "post";
+        card.tabIndex = 0;
+        card.setAttribute("role", "button");
+
+        card.setAttribute(
+            "aria-label",
+            "Leer artículo: " + article.title
+        );
+
+        const categoryLabel =
+            document.createElement("span");
+
+        categoryLabel.className = "category";
+        categoryLabel.textContent = article.label;
+
+        const title = document.createElement("h3");
+        title.textContent = article.title;
+
+        const description = document.createElement("p");
+        description.textContent = article.description;
+
+        const footer = document.createElement("div");
+        footer.className = "post-footer";
+
+        const time = document.createElement("span");
+        time.textContent = "◷ " + article.time + " lectura";
+
+        const hint = document.createElement("span");
+        hint.className = "read-hint";
+        hint.textContent = favorites.has(article.id)
+            ? "♥ Guardado"
+            : "Leer artículo ↗";
+
+        footer.append(time, hint);
+
+        card.append(categoryLabel, title, description, footer);
+
+        card.addEventListener("click", () => {
+            openArticle(index);
+        });
+
+        card.addEventListener("keydown", event => {
+            if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                openArticle(index);
+            }
+        });
+
+        blogGrid.appendChild(card);
+    });
+
+    blogGrid.appendChild(empty);
+
+    empty.style.display = filtered.length ? "none" : "block";
+
+    articleCount.textContent =
+        filtered.length + " de " + articles.length + " artículos";
+}
+
+// ======================================
+// FILTROS
+// ======================================
+
+document.querySelectorAll(".filter").forEach(button => {
+
     button.addEventListener("click", () => {
-        filters.forEach(f => f.classList.remove("active"));
+
+        document.querySelectorAll(".filter")
+            .forEach(item => item.classList.remove("active"));
 
         button.classList.add("active");
-        currentCategory = button.dataset.category;
 
-        filterPosts();
+        renderArticles();
     });
+
 });
+
+search.addEventListener("input", renderArticles);
+
+// ======================================
+// ABRIR ARTICULO
+// ======================================
+
+function openArticle(index, updateHash = true) {
+
+    const article = articles[index];
+
+    if (!article) return;
+
+    currentArticle = index;
+
+    modalTitle.textContent = article.title;
+    modalCategory.textContent = article.label;
+
+    modalMeta.textContent =
+        article.date + " · " +
+        article.time + " de lectura · BAIS.DEV";
+
+    // El HTML del contenido procede del arreglo local de artículos.
+    modalBody.innerHTML = article.content;
+
+    modal.classList.add("show");
+
+    document.body.classList.add("modal-open");
+
+    modalWindow.scrollTop = 0;
+
+    updateProgress();
+    updateFavoriteButton();
+    updateNavigationButtons();
+
+    if (updateHash) {
+        history.replaceState(
+            null,
+            "",
+            "#articulo-" + article.id
+        );
+    }
+
+    document.getElementById("closeModal").focus();
+}
+
+// ======================================
+// CERRAR ARTICULO
+// ======================================
+
+function closeArticle() {
+
+    if (!modal.classList.contains("show")) return;
+
+    modal.classList.remove("show");
+
+    document.body.classList.remove("modal-open");
+
+    history.replaceState(
+        null,
+        "",
+        window.location.pathname + window.location.search
+    );
+}
+
+document.getElementById("closeModal")
+    .addEventListener("click", closeArticle);
+
+modal.addEventListener("click", event => {
+
+    if (event.target === modal) {
+        closeArticle();
+    }
+
+});
+
+document.addEventListener("keydown", event => {
+
+    if (event.key === "Escape" &&
+        modal.classList.contains("show")) {
+        closeArticle();
+    }
+
+});
+
+// ======================================
+// NAVEGACION ENTRE ARTICULOS
+// ======================================
+
+function navigateArticle(direction) {
+
+    const position =
+        currentVisibleArticles.indexOf(currentArticle);
+
+    if (position === -1 || currentVisibleArticles.length <= 1) {
+        return;
+    }
+
+    const nextPosition =
+        (position + direction + currentVisibleArticles.length)
+        % currentVisibleArticles.length;
+
+    openArticle(currentVisibleArticles[nextPosition]);
+}
+
+function updateNavigationButtons() {
+
+    const disabled = currentVisibleArticles.length <= 1;
+
+    document.getElementById("previousArticle").disabled = disabled;
+    document.getElementById("nextArticle").disabled = disabled;
+}
+
+document.getElementById("previousArticle")
+    .addEventListener("click", () => navigateArticle(-1));
+
+document.getElementById("nextArticle")
+    .addEventListener("click", () => navigateArticle(1));
+
+// ======================================
+// FAVORITOS
+// ======================================
+
+function updateFavoriteButton() {
+
+    const button =
+        document.getElementById("favoriteArticle");
+
+    const article = articles[currentArticle];
+
+    const saved = favorites.has(article.id);
+
+    button.classList.toggle("favorite", saved);
+
+    button.textContent = saved
+        ? "♥ Guardado"
+        : "♡ Favorito";
+}
+
+document.getElementById("favoriteArticle")
+    .addEventListener("click", () => {
+
+        const article = articles[currentArticle];
+
+        if (favorites.has(article.id)) {
+            favorites.delete(article.id);
+            showToast("Artículo eliminado de favoritos");
+        } else {
+            favorites.add(article.id);
+            showToast("Artículo guardado en favoritos");
+        }
+
+        localStorage.setItem(
+            "baisFavorites",
+            JSON.stringify([...favorites])
+        );
+
+        updateFavoriteButton();
+        renderArticles();
+    });
+
+// ======================================
+// COPIAR ENLACE
+// ======================================
+
+document.getElementById("copyArticle")
+    .addEventListener("click", async () => {
+
+        const url = new URL(window.location.href);
+
+        url.hash = "articulo-" + articles[currentArticle].id;
+
+        try {
+
+            await navigator.clipboard.writeText(url.href);
+
+            showToast("Enlace copiado correctamente");
+
+        } catch {
+
+            showToast(
+                "No se pudo copiar. Copia la dirección del navegador."
+            );
+
+        }
+
+    });
+
+// ======================================
+// BARRA DE PROGRESO
+// ======================================
+
+modalWindow.addEventListener("scroll", updateProgress);
+
+function updateProgress() {
+
+    const maxScroll =
+        modalWindow.scrollHeight - modalWindow.clientHeight;
+
+    const percentage = maxScroll > 0
+        ? (modalWindow.scrollTop / maxScroll) * 100
+        : 0;
+
+    progress.style.width =
+        Math.min(100, percentage) + "%";
+}
+
+// ======================================
+// NOTIFICACIONES
+// ======================================
+
+let toastTimeout;
+
+function showToast(message) {
+
+    const toast = document.getElementById("toast");
+
+    toast.textContent = message;
+
+    toast.classList.add("show");
+
+    clearTimeout(toastTimeout);
+
+    toastTimeout = setTimeout(() => {
+        toast.classList.remove("show");
+    }, 2300);
+}
+
+// ======================================
+// MENU MOVIL
+// ======================================
+
+menuBtn.addEventListener("click", () => {
+
+    const opened = navLinks.classList.toggle("open");
+
+    menuBtn.textContent = opened ? "✕" : "☰";
+
+    menuBtn.setAttribute("aria-expanded", String(opened));
+
+});
+
+document.querySelectorAll(".nav-links a").forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        navLinks.classList.remove("open");
+
+        menuBtn.textContent = "☰";
+
+        menuBtn.setAttribute("aria-expanded", "false");
+
+    });
+
+});
+
+// ======================================
+// MENUS DESPLEGABLES
+// ======================================
 
 document.querySelectorAll(".dropdown").forEach(dropdown => {
+
     dropdown.addEventListener("toggle", () => {
+
         if (dropdown.open) {
+
             document.querySelectorAll(".dropdown").forEach(other => {
-                if (other !== dropdown) other.open = false;
+
+                if (other !== dropdown) {
+                    other.open = false;
+                }
+
             });
+
         }
+
     });
+
 });
+
+// ======================================
+// ABRIR ARTICULO DESDE URL
+// ======================================
+
+function checkArticleHash() {
+
+    const match = window.location.hash.match(/^#articulo-(.+)$/);
+
+    if (!match) return;
+
+    const index = articles.findIndex(
+        article => article.id === match[1]
+    );
+
+    if (index !== -1) {
+        openArticle(index, false);
+    }
+}
+
+// ======================================
+// INICIALIZACION
+// ======================================
+
+renderArticles();
+
+checkArticleHash();
 
 </script>
 
