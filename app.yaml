@@ -1,0 +1,14 @@
+runtime: php85
+
+handlers:
+  # Página principal
+  - url: /
+    static_files: index.html
+    upload: index.html
+    secure: always
+
+  # Archivos estáticos adicionales
+  - url: /(.*)
+    static_files: \1
+    upload: (.*)
+    secure: always
