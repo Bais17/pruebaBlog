@@ -1,6 +1,204 @@
-<h2> Mis Blog Personal</h2>
- <article>
-    <h3>Espinoza Barraza Luis</h3>
-    <p>Nubes - 2026</p>
-    <small>17/11/2026</small>
- </article>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Blog Personal</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #f8f2eb;
+            color: #51443e;
+        }
+
+        header {
+            background: #d9b9aa;
+            padding: 25px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h2 {
+            color: white;
+            letter-spacing: 2px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: bold;
+        }
+
+        .inicio {
+            min-height: 420px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 60px 20px;
+            background: #eee0d5;
+        }
+
+        .inicio h1 {
+            font-size: 45px;
+            color: #986e60;
+            margin-bottom: 15px;
+        }
+
+        .inicio p {
+            font-size: 18px;
+            margin-bottom: 25px;
+        }
+
+        .boton {
+            display: inline-block;
+            background: #a77c6d;
+            color: white;
+            padding: 13px 28px;
+            border-radius: 25px;
+            text-decoration: none;
+        }
+
+        .contenido {
+            padding: 55px 8%;
+            text-align: center;
+        }
+
+        .contenido h2 {
+            color: #986e60;
+            font-size: 30px;
+            margin-bottom: 30px;
+        }
+
+        .tarjetas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .tarjeta {
+            background: white;
+            padding: 30px 20px;
+            border-radius: 18px;
+            box-shadow: 0 5px 15px #00000010;
+            transition: 0.3s;
+        }
+
+        .tarjeta:hover {
+            transform: translateY(-7px);
+        }
+
+        .tarjeta .icono {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .tarjeta h3 {
+            color: #a77c6d;
+            margin-bottom: 12px;
+        }
+
+        .tarjeta p {
+            line-height: 1.6;
+        }
+
+        footer {
+            background: #b18c7d;
+            color: white;
+            text-align: center;
+            padding: 25px;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 5px;
+                display: inline-block;
+            }
+
+            .inicio h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h2>MI ESPACIO ♡</h2>
+    <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#experiencias">Experiencias</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+</header>
+
+<section class="inicio" id="inicio">
+    <div>
+        <h1>¡Bienvenidos a mi mundo!</h1>
+        <p>Un pequeño rincón donde comparto mis ideas,
+        experiencias, sueños y momentos especiales.</p>
+        <a href="#sobre-mi" class="boton">Conóceme más</a>
+    </div>
+</section>
+
+<section class="contenido" id="sobre-mi">
+    <h2>Explora mi blog personal</h2>
+
+    <div class="tarjetas">
+
+        <div class="tarjeta">
+            <div class="icono">🌷</div>
+            <h3>Sobre mí</h3>
+            <p>Conoce quién soy, mis gustos,
+            intereses y aquello que me identifica.</p>
+        </div>
+
+        <div class="tarjeta">
+            <div class="icono">📖</div>
+            <h3>Mi día a día</h3>
+            <p>Pequeñas historias, experiencias
+            y momentos que forman parte de mi vida.</p>
+        </div>
+
+        <div class="tarjeta">
+            <div class="icono">✨</div>
+            <h3>Mis sueños</h3>
+            <p>Mis metas, proyectos y todo aquello
+            que deseo alcanzar.</p>
+        </div>
+
+        <div class="tarjeta">
+            <div class="icono">💌</div>
+            <h3>Mis reflexiones</h3>
+            <p>Pensamientos, aprendizajes e ideas
+            que quiero compartir.</p>
+        </div>
+
+    </div>
+</section>
+
+<footer id="contacto">
+    <p>♡ Mi espacio, mi historia, mi esencia ♡</p>
+    <p>Gracias por visitar mi blog personal.</p>
+</footer>
+
+</body>
+</html>
